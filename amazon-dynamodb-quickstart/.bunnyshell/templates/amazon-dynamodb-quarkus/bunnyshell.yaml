@@ -1,0 +1,48 @@
+kind: Environment
+name: Quarkus amazon-dynamodb-quickstart Application (development profile)
+type: ephemeral
+components:
+  -
+    kind: Database
+    name: dynamodb-localstack
+    dockerCompose:
+      environment:
+        SERVICES: dynamodb
+        START_WEB: 0
+      image: localstack/localstack
+      ports:
+        - '4566:4566'
+  -
+    kind: GenericComponent
+    runnerImage: himanshumps/quarkus-runner
+    start:
+      - 'echo "start"'
+    deploy:
+      - 'echo "Installing AWS CLI"'
+      - 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+      - 'unzip awscliv2.zip'
+      - './aws/install -i /usr/local/aws-cli -b /usr/local/bin'
+      - 'aws dynamodb create-table --table-name QuarkusFruits --attribute-definitions AttributeName=fruitName,AttributeType=S --key-schema AttributeName=fruitName,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --profile localstack --endpoint-url=http://dynamodb-localstack:4566'
+    destroy:
+      - 'echo "destroy"'
+    stop:
+      - 'echo "stop"'
+  -
+    kind: Application
+    name: amazon-dynamodb-quickstart-applicaton
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: amazon-dynamodb-quickstart
+    dockerCompose:
+      build:
+        context: ./amazon-dynamodb-quickstart
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+      environment:
+        LOCALSTACK: 'dynamodb-localstack'
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'amazon-dynamodb-quickstart-applicaton-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
