@@ -14,6 +14,7 @@ components:
         - '4566:4566'
   -
     kind: GenericComponent
+    name: aws-cli
     runnerImage: himanshumps/quarkus-runner
     start:
       - 'echo "start"'
