@@ -24,7 +24,7 @@ public class DynamodbResource implements QuarkusTestResourceLifecycleManager {
     public final static String TABLE_NAME = "QuarkusFruits";
 
     private static final DockerImageName LOCALSTACK_IMAGE_NAME = DockerImageName.parse("localstack/localstack")
-            .withTag("0.12.17");
+            .withTag("latest");
 
     private LocalStackContainer container;
     private DynamoDbClient client;
@@ -36,7 +36,7 @@ public class DynamodbResource implements QuarkusTestResourceLifecycleManager {
             container = new LocalStackContainer(LOCALSTACK_IMAGE_NAME).withServices(Service.DYNAMODB);
             container.start();
 
-            URI endpointOverride = container.getEndpointOverride(EnabledService.named(Service.DYNAMODB.getName()));
+            URI endpointOverride = container.getEndpointOverride(EnabledService.named("EDGE"));
 
             client = DynamoDbClient.builder()
                 .endpointOverride(endpointOverride)
