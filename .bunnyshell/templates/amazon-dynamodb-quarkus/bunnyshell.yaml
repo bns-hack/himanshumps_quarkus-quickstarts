@@ -19,7 +19,10 @@ components:
     start:
       - 'echo "start"'
     deploy:
-      - 'aws dynamodb create-table --table-name QuarkusFruits --attribute-definitions AttributeName=fruitName,AttributeType=S --key-schema AttributeName=fruitName,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --profile localstack --endpoint-url=http://dynamodb-localstack:4566'
+      - 'aws configure set aws_access_key_id test-key'
+      - 'aws configure set aws_secret_access_key test-secret'
+      - 'aws configure set default.region us-east-1'
+      - 'aws dynamodb create-table --table-name QuarkusFruits --attribute-definitions AttributeName=fruitName,AttributeType=S --key-schema AttributeName=fruitName,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url=http://dynamodb-localstack:4566'
     destroy:
       - 'echo "destroy"'
     stop:
