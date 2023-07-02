@@ -38,6 +38,7 @@ components:
       build:
         context: ./amazon-dynamodb-quickstart
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
       environment:
         LOCALSTACK: 'dynamodb-localstack'
       ports:

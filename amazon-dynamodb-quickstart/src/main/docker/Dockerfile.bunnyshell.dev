@@ -77,14 +77,14 @@
 #   accessed directly. (example: "foo.example.com,bar.example.com")
 #
 ###
-FROM registry.access.redhat.com/ubi8/openjdk-11:1.15
+FROM registry.access.redhat.com/ubi8/openjdk-11:1.15 as dev
 
 ENV LANGUAGE='en_US:en'
 
 COPY --chown=185 .mvn .mvn
 COPY --chown=185 pom.xml mvnw mvnw.cmd ./
+RUN ./mvnw dependency:resolve
 COPY --chown=185 src src
-
-RUN ./mvnw clean quarkus:dev -Dmaven.test.skip
+CMD ["./mvnw","clean","quarkus:dev","-Dmaven.test.skip"]
 
 
