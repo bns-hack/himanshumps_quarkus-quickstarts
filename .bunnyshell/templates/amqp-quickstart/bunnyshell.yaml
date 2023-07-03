@@ -1,0 +1,52 @@
+kind: Environment
+name: Quarkus amqp-quickstart Application (development profile)
+type: ephemeral
+components:
+  -
+    kind: Database
+    name: activemq-artemis-broker
+    dockerCompose:
+      environment:
+        environment:
+          AMQ_USER: quarkus
+          AMQ_PASSWORD: quarkus
+      image: quay.io/artemiscloud/activemq-artemis-broker:1.0.18
+      ports:
+        - "8161:8161"
+        - "61616:61616"
+        - "5672:5672"
+  -
+    kind: Service
+    name: amqp-quickstart-processor-application
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: amqp-quickstart-processor
+    dockerCompose:
+      build:
+        context: ./amqp-quickstart-processor
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        AMQP_HOST: activemq-artemis-broker
+        AMQP_PORT: 5672
+  -
+    kind: Application
+    name: amqp-quickstart-producer-application
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: amqp-quickstart-producer
+    dockerCompose:
+      build:
+        context: ./amqp-quickstart-producer
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        AMQP_HOST: activemq-artemis-broker
+        AMQP_PORT: 5672
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'amqp-producer-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
