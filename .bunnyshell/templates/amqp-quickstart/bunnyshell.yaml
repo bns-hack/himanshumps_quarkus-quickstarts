@@ -19,10 +19,10 @@ components:
     name: amqp-quickstart-processor-application
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
-    gitApplicationPath: amqp-quickstart-processor
+    gitApplicationPath: amqp-quickstart/amqp-quickstart-processor
     dockerCompose:
       build:
-        context: ./amqp-quickstart-processor
+        context: ./amqp-quickstart/amqp-quickstart-processor
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
         target: dev
       environment:
@@ -33,10 +33,10 @@ components:
     name: amqp-quickstart-producer-application
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
-    gitApplicationPath: amqp-quickstart-producer
+    gitApplicationPath: amqp-quickstart/amqp-quickstart-producer
     dockerCompose:
       build:
-        context: ./amqp-quickstart-producer
+        context: ./amqp-quickstart/amqp-quickstart-producer
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
         target: dev
       environment:
