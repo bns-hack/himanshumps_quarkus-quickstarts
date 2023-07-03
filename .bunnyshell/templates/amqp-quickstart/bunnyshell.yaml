@@ -7,9 +7,8 @@ components:
     name: activemq-artemis-broker
     dockerCompose:
       environment:
-        environment:
-          AMQ_USER: quarkus
-          AMQ_PASSWORD: quarkus
+        AMQ_USER: quarkus
+        AMQ_PASSWORD: quarkus
       image: quay.io/artemiscloud/activemq-artemis-broker:1.0.18
       ports:
         - "8161:8161"
