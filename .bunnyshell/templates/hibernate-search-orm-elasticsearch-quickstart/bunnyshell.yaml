@@ -32,7 +32,7 @@ components:
         subPath: ''
   -
     kind: Application
-    name: hibernate-search-orm-elasticsearch-quickstart-application
+    name: hibernate-orm-elasticsearch-qs-application
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: hibernate-search-orm-elasticsearch-quickstart
