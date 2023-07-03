@@ -18,11 +18,11 @@ components:
       deploy:
         resources:
           limits:
-            cpus: 2
-            memory: 3072M
+            cpus: "2"
+            memory: "3072M"
           reservations:
-            cpus: 2
-            memory: 3072M
+            cpus: "2"
+            memory: "3072M"
   -
     kind: Database
     name: postgres-db
