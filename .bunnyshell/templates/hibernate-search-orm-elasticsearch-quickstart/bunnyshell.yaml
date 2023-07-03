@@ -2,24 +2,33 @@ kind: Environment
 name: Quarkus hibernate-search-orm-elasticsearch-quickstart Application (development profile)
 type: ephemeral
 environmentVariables:
-  POSTGRES_PASSWORD: bns_secret(qHogxn5e)
+  POSTGRES_PASSWORD_VAR: bns_secret(qHogxn5e)
   POSTGRES_USERNAME: bns_secret(postgres)
 components:
   -
     kind: Database
     name: elasticsearch
     dockerCompose:
+      environment:
+        ES_JAVA_OPTS: "-Xms2g -Xmx2g"
       image: himanshumps/elasticsearch-single-node-oss:latest
       ports:
         - '9200:9200'
         - '9300:9300'
+      resources:
+        limits:
+          cpus: 2
+          memory: 3072M
+        reservations:
+          cpus: 2
+          memory: 3072M
   -
     kind: Database
     name: postgres-db
     dockerCompose:
       environment:
         POSTGRES_DB: quarkus_test
-        POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_PASSWORD }}'
+        POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_PASSWORD_VAR }}'
         POSTGRES_USER: '{{ env.vars.POSTGRES_USERNAME }}'
       image: postgres:15.3-alpine3.18
       ports:
@@ -43,7 +52,7 @@ components:
       environment:
         POSTGRES_HOST: postgres-db
         ELASTICSEARCH_HOST: elasticsearch
-        POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_PASSWORD }}'
+        POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_PASSWORD_VAR }}'
         POSTGRES_USER: '{{ env.vars.POSTGRES_USERNAME }}'
         QUARKUS_PROFILE: prod
       ports:
