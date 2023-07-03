@@ -83,6 +83,6 @@ ENV LANGUAGE='en_US:en'
 
 COPY --chown=185 .mvn .mvn
 COPY --chown=185 pom.xml mvnw mvnw.cmd ./
-RUN ./mvnw dependency:resolve
+RUN ./mvnw quarkus:go-offline
 COPY --chown=185 src src
 CMD ["./mvnw","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "clean","quarkus:dev"]
