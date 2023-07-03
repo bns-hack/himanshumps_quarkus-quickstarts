@@ -23,13 +23,13 @@ components:
         subPath: ''
   -
     kind: Application
-    name: getting-started-reactive-crud-application
+    name: hibernate-orm-panache-kotlin-quickstart-application
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
-    gitApplicationPath: getting-started-reactive-crud
+    gitApplicationPath: hibernate-orm-panache-kotlin-quickstart
     dockerCompose:
       build:
-        context: ./getting-started-reactive-crud
+        context: ./hibernate-orm-panache-kotlin-quickstart
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
         target: dev
       environment:
