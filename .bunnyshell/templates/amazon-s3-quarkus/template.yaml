@@ -1,4 +1,4 @@
-name: Quarkus amazon-dynamodb-quickstart Application (development profile)
+name: Quarkus amazon-s3-quickstart Application (development profile)
 description: Ths is the development profile for developers to spin up a new environment for running the amazon-dynamodb-quickstart application.
 tags:
   - Java
