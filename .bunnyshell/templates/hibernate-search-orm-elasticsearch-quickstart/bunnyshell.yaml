@@ -18,10 +18,10 @@ components:
       deploy:
         resources:
           limits:
-            cpus: "2"
+            cpus: "1"
             memory: "3072M"
           reservations:
-            cpus: "2"
+            cpus: "1"
             memory: "3072M"
   -
     kind: Database
