@@ -1,0 +1,75 @@
+kind: Environment
+name: Quarkus hibernate-orm-multi-tenancy-quickstart Application (development profile)
+type: ephemeral
+environmentVariables:
+  POSTGRES_BASE_PASSWORD: bns_secret(qHogxn5e)
+  POSTGRES_BASE_USERNAME: bns_secret(postgres)
+  POSTGRES_MYCOMPANY_PASSWORD: bns_secret(wjkHf897qwd)
+  POSTGRES_MYCOMPANY_USERNAME: bns_secret(postgres)
+components:
+  -
+    kind: Database
+    name: postgres-base
+    dockerCompose:
+      environment:
+        POSTGRES_DB: quarkus_test
+        POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_BASE_PASSWORD }}'
+        POSTGRES_USER: '{{ env.vars.POSTGRES_BASE_USERNAME }}'
+      image: postgres:15.3-alpine3.18
+      ports:
+        - '5432:5432'
+    volumes:
+      -
+        name: postgres-base
+        mount: /var/lib/postgresql/data
+        subPath: ''
+  -
+    kind: Database
+    name: postgres-mycompany
+    dockerCompose:
+      environment:
+        POSTGRES_DB: mycompany
+        POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_MYCOMPANY_PASSWORD }}'
+        POSTGRES_USER: '{{ env.vars.POSTGRES_MYCOMPANY_USERNAME }}'
+      image: postgres:15.3-alpine3.18
+      ports:
+        - '5433:5432'
+    volumes:
+      -
+        name: postgres-mycompany
+        mount: /var/lib/postgresql/data
+        subPath: ''  
+  -
+    kind: Application
+    name: hibernate-orm-multi-tenancy-quickstart-application
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: hibernate-orm-multi-tenancy-quickstart
+    dockerCompose:
+      build:
+        context: ./hibernate-orm-multi-tenancy-quickstart
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        DB_HOST_TENANT_BASE: postgres-base
+        DB_HOST_TENANT_MYCOMPANY: postgres-mycompany
+        DB_HOST_TENANT_BASE_USERNAME: '{{ env.vars.POSTGRES_BASE_USERNAME }}'
+        DB_HOST_TENANT_BASE_PASSWORD: '{{ env.vars.POSTGRES_BASE_PASSWORD }}'
+        DB_HOST_TENANT_MYCOMPANY_USERNAME: '{{ env.vars.POSTGRES_MYCOMPANY_USERNAME }}'
+        DB_HOST_TENANT_MYCOMPANY_PASSWORD: '{{ env.vars.POSTGRES_MYCOMPANY_PASSWORD }}'
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'multi-tenancy-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
+volumes:
+  -
+    name: postgres-base
+    size: 128Mi
+    type: disk
+  -
+    name: postgres-mycompany
+    size: 128Mi
+    type: disk
