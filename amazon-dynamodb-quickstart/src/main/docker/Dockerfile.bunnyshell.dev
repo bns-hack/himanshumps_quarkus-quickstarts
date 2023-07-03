@@ -85,6 +85,4 @@ COPY --chown=185 .mvn .mvn
 COPY --chown=185 pom.xml mvnw mvnw.cmd ./
 RUN ./mvnw dependency:resolve
 COPY --chown=185 src src
-CMD ["./mvnw","clean","quarkus:dev","-Dmaven.test.skip"]
-
-
+CMD ["./mvnw","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "clean","quarkus:dev"]
