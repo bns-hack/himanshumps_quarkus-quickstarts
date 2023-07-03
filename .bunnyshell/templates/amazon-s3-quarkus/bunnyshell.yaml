@@ -1,34 +1,35 @@
 kind: Environment
-name: Quarkus amazon-dynamodb-quickstart Application (development profile)
+name: Quarkus amazon-s3-quickstart Application (development profile)
 type: ephemeral
 components:
   -
     kind: Database
-    name: dynamodb-localstack
+    name: s3-localstack
     dockerCompose:
       environment:
-        SERVICES: dynamodb
+        SERVICES: s3
         START_WEB: '0'
-      image: himanshumps/amazon-dynamodb-localstack
+        EAGER_SERVICE_LOADING: '1'
+      image: himanshumps/s3-localstack
       ports:
         - '4566:4566'
   -
     kind: Application
-    name: amazon-dynamodb-quickstart-applicaton
+    name: amazon-s3-quickstart-applicaton
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: amazon-dynamodb-quickstart
     dockerCompose:
       build:
-        context: ./amazon-dynamodb-quickstart
+        context: ./amazon-s3-quickstart
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
         target: dev
       environment:
-        LOCALSTACK: 'dynamodb-localstack'
+        LOCALSTACK: 's3-localstack'
       ports:
         - '8080:8080'
     hosts:
       -
-        hostname: 'amzn-dynamodb-{{ env.base_domain }}'
+        hostname: 'amzn-s3-{{ env.base_domain }}'
         path: /
         servicePort: 8080
