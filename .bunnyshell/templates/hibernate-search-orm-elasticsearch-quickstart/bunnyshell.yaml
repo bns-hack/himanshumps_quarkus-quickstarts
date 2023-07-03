@@ -7,7 +7,7 @@ environmentVariables:
 components:
   -
     kind: Database
-    name: elasticsearch
+    name: elasticsearch-db
     dockerCompose:
       environment:
         ES_JAVA_OPTS: "-Xms2g -Xmx2g"
@@ -52,7 +52,7 @@ components:
         target: dev
       environment:
         POSTGRES_HOST: postgres-db
-        ELASTICSEARCH_HOST: elasticsearch
+        ELASTICSEARCH_HOST: elasticsearch-db
         POSTGRES_PASSWORD: '{{ env.vars.POSTGRES_PASSWORD_VAR }}'
         POSTGRES_USER: '{{ env.vars.POSTGRES_USERNAME }}'
         QUARKUS_PROFILE: prod
