@@ -41,7 +41,7 @@ components:
         - '8080:8080'
     hosts:
       -
-        hostname: 'reactive-panache-{{ env.base_domain }}'
+        hostname: 'hibernate-reactive-{{ env.base_domain }}'
         path: /
         servicePort: 8080
 volumes:
