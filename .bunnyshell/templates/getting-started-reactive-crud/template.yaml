@@ -1,10 +1,10 @@
-name: Quarkus amqp-quickstart Application (development profile)
+name: Quarkus getting-started-reactive-crud Application (development profile)
 description: Ths is the development profile for developers to spin up a new environment for running the amazon-dynamodb-quickstart application.
 tags:
   - Java
   - Quarkus
   - Fast JAR
-  - AMQP
+  - Postgres
 icons: [ 'java', 'quarkus']
 stack:
   packages:
