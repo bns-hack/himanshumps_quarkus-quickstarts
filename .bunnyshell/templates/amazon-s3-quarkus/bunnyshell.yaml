@@ -18,7 +18,7 @@ components:
     name: amazon-s3-quickstart-applicaton
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
-    gitApplicationPath: amazon-dynamodb-quickstart
+    gitApplicationPath: amazon-s3-quickstart
     dockerCompose:
       build:
         context: ./amazon-s3-quickstart
