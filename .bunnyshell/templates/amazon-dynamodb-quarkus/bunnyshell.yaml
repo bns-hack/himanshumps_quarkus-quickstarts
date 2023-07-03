@@ -29,6 +29,6 @@ components:
         - '8080:8080'
     hosts:
       -
-        hostname: 'amazon-dynamodb-quickstart-applicaton-{{ env.base_domain }}'
+        hostname: 'amzn-dynamodb-{{ env.base_domain }}'
         path: /
         servicePort: 8080
