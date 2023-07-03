@@ -83,6 +83,8 @@ ENV LANGUAGE='en_US:en'
 
 COPY --chown=185 .mvn .mvn
 COPY --chown=185 pom.xml mvnw mvnw.cmd ./
-RUN ./mvnw clean package quarkus:go-offline -B -ntp -Dmaven.test.skip -Dquarkus-profiles=build,dev -Dmode=dev
+RUN ./mvnw quarkus:go-offline -B -ntp -Dmaven.test.skip -Dmode=dev
+RUN ./mvnw dependency:go-offline -B -ntp -Dmaven.test.skip
+RUN ./mvnw clean package
 COPY --chown=185 src src
 CMD ["./mvnw", "-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "clean","quarkus:dev"]
