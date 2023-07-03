@@ -57,6 +57,7 @@ components:
         DB_HOST_TENANT_BASE_PASSWORD: '{{ env.vars.POSTGRES_BASE_PASSWORD }}'
         DB_HOST_TENANT_MYCOMPANY_USERNAME: '{{ env.vars.POSTGRES_MYCOMPANY_USERNAME }}'
         DB_HOST_TENANT_MYCOMPANY_PASSWORD: '{{ env.vars.POSTGRES_MYCOMPANY_PASSWORD }}'
+        QUARKUS_PROFILE: database
       ports:
         - '8080:8080'
     hosts:
