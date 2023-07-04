@@ -17,6 +17,14 @@ components:
         - '8161:8161'
         - '61616:61616'
         - '5672:5672'
+      deploy:
+        resources:
+          limits:
+            cpus: "1"
+            memory: "3072M"
+          reservations:
+            cpus: "1"
+            memory: "3072M"
   -
     kind: Application
     name:  jms-quickstart-application
