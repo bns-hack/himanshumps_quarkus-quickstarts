@@ -1,0 +1,21 @@
+kind: Environment
+name: Quarkus microprofile-graphql-quickstart Application (development profile)
+type: ephemeral
+components:
+  -
+    kind: Application
+    name: microprofile-graphql-quickstart
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: microprofile-graphql-quickstart
+    dockerCompose:
+      build:
+        context: ./microprofile-graphql-quickstart
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'microprofile-graphql-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
