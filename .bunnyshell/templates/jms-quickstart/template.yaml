@@ -1,0 +1,17 @@
+name: Quarkus jms-quickstart Application (development profile)
+description: Ths is the development profile for developers to spin up a new environment for running the jms-quickstart application.
+tags:
+  - Java
+  - Quarkus
+  - Fast JAR
+  - Apache ActiveMQ Artemis
+icons: [ 'java', 'quarkus', 'activemq']
+stack:
+  packages:
+    - name: Openjdk
+      version: '17'
+    - name: Quarkus
+      version: '3.1.3'
+    - name: Artemis ActiveMQ
+      version: '2.29.0'
+discoverable: true
