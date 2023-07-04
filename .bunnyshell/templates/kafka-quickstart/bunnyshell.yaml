@@ -1,0 +1,77 @@
+kind: Environment
+name: Quarkus kafka-quickstart Application (development profile)
+type: ephemeral
+environmentVariables:
+  POSTGRES_PASSWORD: bns_secret(qHogxn5e)
+  POSTGRES_USERNAME: bns_secret(postgres)
+components:
+  -
+    kind: Database
+    name: zookeeper
+    dockerCompose:
+      environment:
+        LOG_DIR: /tmp/logs
+      image: himanshumps/zookeeper
+      ports:
+        - '2181:2181'
+      deploy:
+        resources:
+          limits:
+            cpus: "1"
+            memory: "3072M"
+          reservations:
+            cpus: "1"
+            memory: "3072M"
+  -
+    kind: Database
+    name: kafka
+    dockerCompose:
+      image: himanshumps/kafka
+      ports:
+        - '9092:9092'
+      environment:
+        LOG_DIR: "/tmp/logs"
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+        KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      deploy:
+        resources:
+          limits:
+            cpus: "1"
+            memory: "3072M"
+          reservations:
+            cpus: "1"
+            memory: "3072M"
+  -
+    kind: Service
+    name: kafka-quickstart-processor
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: kafka-quickstart/processor
+    dockerCompose:
+      build:
+        context: ./kafka-quickstart/processor
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+  -
+    kind: Application
+    name: kafka-quickstart-producer
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: kafka-quickstart/producer
+    dockerCompose:
+      build:
+        context: ./kafka-quickstart/producer
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'kafka-qs-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
