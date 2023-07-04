@@ -6,10 +6,10 @@ components:
     kind: Database
     name: mosquitto
     dockerCompose:
-      image: eclipse-mosquitto
+      image: eclipse-mosquitto:1.6.15
       ports:
-        - "1883:1883"
-        - "9001:9001"
+        - '1883:1883'
+        - '9001:9001'
   -
     kind: Application
     name: mqtt-quickstart-application
