@@ -23,6 +23,7 @@ components:
         target: dev
       environment:
         MQTT_HOST: mosquitto
+        QUARKUS_PROFILE: prod
       ports:
         - '8080:8080'
     hosts:
