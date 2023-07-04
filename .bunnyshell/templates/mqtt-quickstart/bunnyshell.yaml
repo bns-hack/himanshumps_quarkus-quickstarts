@@ -12,7 +12,7 @@ components:
         - "9001:9001"
   -
     kind: Application
-    name: mongodb-quickstart-application
+    name: mqtt-quickstart-application
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: mqtt-quickstart
