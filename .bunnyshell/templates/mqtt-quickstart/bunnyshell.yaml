@@ -22,7 +22,7 @@ components:
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
         target: dev
       environment:
-        MOSQUITTO_HOST: mosquitto
+        MQTT_HOST: mosquitto
       ports:
         - '8080:8080'
     hosts:
