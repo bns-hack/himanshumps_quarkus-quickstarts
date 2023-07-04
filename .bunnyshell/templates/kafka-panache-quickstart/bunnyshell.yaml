@@ -1,0 +1,43 @@
+kind: Environment
+name: Quarkus kafka-panache-quickstart Application (development profile)
+type: ephemeral
+environmentVariables:
+  AMQ_USER: bns_secret(amquser)
+  AMQ_PASSWORD: bns_secret(qHohxn9w)
+components:
+  -
+    kind: Helm
+    version: v1
+    name: zookeeper
+    runnerImage: 'dtzar/helm-kubectl:3.8.2'
+    deploy:
+      - 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+      - 'helm upgrade --install --namespace {{ env.k8s.namespace }} --post-renderer /bns/helpers/helm/add_labels/kustomize  zookeeper bitnami/zookeeper --set replicaCount=1  --set auth.enabled=false --set allowAnonymousLogin=true'
+      - ZOOKEEPER_IP=$(kubectl get svc --namespace {{ env.k8s.namespace }} zookeeper -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    destroy:
+      - 'helm uninstall zookeeper --namespace {{ env.k8s.namespace }}'
+    start:
+      - 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+      - 'helm upgrade --namespace {{ env.k8s.namespace }} --post-renderer /bns/helpers/helm/add_labels/kustomize --reuse-values zookeeper bitnami/zookeeper --set replicaCount=1  --set auth.enabled=false --set allowAnonymousLogin=true'
+    stop:
+      - 'helm upgrade --namespace {{ env.k8s.namespace }} --post-renderer /bns/helpers/helm/add_labels/kustomize --reuse-values --set replicaCount=0  zookeeper bitnami/zookeeper'
+    exportVariables:
+      - ZOOKEEPER_IP
+  -
+    kind: Helm
+    version: v1
+    name: kafka
+    runnerImage: 'dtzar/helm-kubectl:3.8.2'
+    deploy:
+      - 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+      - 'helm upgrade --install --namespace {{ env.k8s.namespace }} --post-renderer /bns/helpers/helm/add_labels/kustomize kafka bitnami/kafka --set zookeeper.enabled=false --set replicaCount=1 --set externalZookeeper.servers={{ components.zookeeper.exported.ZOOKEEPER_IP }}'
+      - KAFKA_IP=$(kubectl get svc --namespace {{ env.k8s.namespace }} kafka -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    destroy:
+      - 'helm uninstall kafka --namespace {{ env.k8s.namespace }}'
+    start:
+      - 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+      - 'helm upgrade --namespace {{ env.k8s.namespace }} --post-renderer /bns/helpers/helm/add_labels/kustomize --reuse-values kafka bitnami/kafka --set zookeeper.enabled=false --set replicaCount=1 --set externalZookeeper.servers={{ components.zookeeper.exported.ZOOKEEPER_IP }}'
+    stop:
+      - 'helm upgrade --namespace {{ env.k8s.namespace }} --post-renderer /bns/helpers/helm/add_labels/kustomize --reuse-values --set replica.replicaCount=0 kafka bitnami/kafka --set zookeeper.enabled=false --set replicaCount=1 --set externalZookeeper.servers={{ components.zookeeper.exported.ZOOKEEPER_IP }}'
+    exportVariables:
+      - KAFKA_IP
