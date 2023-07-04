@@ -1,0 +1,41 @@
+kind: Environment
+name: Quarkus mongodb-quickstart Application (development profile)
+type: ephemeral
+components:
+  -
+    kind: Database
+    name: mongodb
+    dockerCompose:
+      image: mongo
+      ports:
+        - '27017:27017'
+    volumes:
+      -
+        name: mongodb-volume
+        mount: /data/db
+        subPath: ''
+  -
+    kind: Application
+    name: mongodb-quickstart-application
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: mongodb-quickstart
+    dockerCompose:
+      build:
+        context: ./mongodb-quickstart
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        MONGODB_HOST: mongodb
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'mongodb-quickstart-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
+volumes:
+  -
+    name: mongodb-volume
+    size: 128Mi
+    type: disk
