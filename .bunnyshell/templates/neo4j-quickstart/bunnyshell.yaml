@@ -1,0 +1,59 @@
+kind: Environment
+name: Quarkus neo4j-quickstart Application (development profile)
+type: ephemeral
+environmentVariables:
+  NEO4J_USERNAME: bns_secret(neo4j)
+  NEO4J_PASSWORD: bns_secret(qHogxn5e)
+components:
+  -
+    kind: Database
+    name: neo4j
+    dockerCompose:
+      environment:
+        NEO4J_dbms_memory_pagecache_size: 1G
+        NEO4J_dbms.memory.heap.initial_size: 1G
+        NEO4J_dbms_memory_heap_max__size: 2G
+        NEO4J_AUTH: '{{ env.vars.NEO4J_USERNAME }}/{{ env.vars.NEO4J_PASSWORD }}'
+      image: neo4j:4.4.22
+      ports:
+        - "7474:7474"
+        - "7687:7687"
+      deploy:
+        resources:
+          limits:
+            cpus: "1"
+            memory: "3072M"
+          reservations:
+            cpus: "1"
+            memory: "3072M"
+    volumes:
+      - name: neo4j-data
+        mount: /data
+        subPath: ''
+  -
+    kind: Application
+    name: neo4j-quickstart-application
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: neo4j-quickstart
+    dockerCompose:
+      build:
+        context: ./neo4j-quickstart
+        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        target: dev
+      environment:
+        NEO4J_HOST: neo4j
+        NEO4J_USERNAME: '{{ env.vars.NEO4J_USERNAME }}'
+        NEO4J_PASSWORD: '{{ env.vars.NEO4J_PASSWORD }}'
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'neo4j-quickstart-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
+volumes:
+  -
+    name: neo4j-data
+    size: 128Mi
+    type: disk

@@ -1,0 +1,15 @@
+name: Quarkus neo4j-quickstart Application (development profile)
+description: Ths is the development profile for developers to spin up a new environment for running the neo4j-quickstart application.
+tags:
+  - Java
+  - Quarkus
+  - Fast JAR
+  - Neo4j
+icons: [ 'java', 'quarkus', 'neo4j']
+stack:
+  packages:
+    - name: Openjdk
+      version: '17'
+    - name: Quarkus
+      version: '3.1.3'
+discoverable: true
