@@ -45,6 +45,7 @@ components:
         NEO4J_HOST: neo4j
         NEO4J_USERNAME: '{{ env.vars.NEO4J_USERNAME }}'
         NEO4J_PASSWORD: '{{ env.vars.NEO4J_PASSWORD }}'
+        QUARKUS_PROFILE: prod
       ports:
         - '8080:8080'
     hosts:
