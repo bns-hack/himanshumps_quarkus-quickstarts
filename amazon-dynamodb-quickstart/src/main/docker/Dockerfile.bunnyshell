@@ -78,6 +78,9 @@ CMD ["mvn","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss
 #ENV JAVA_APP_JAR="/home/jboss/target/quarkus-app/quarkus-run.jar"
 #CMD ["/usr/local/s2i/run"]
 
+FROM dev AS builder
+# build the fast jar file
+RUN mvn clean package -B -ntp -Dmaven.test.skip -DskipTests
 
 # Prod stage
 FROM registry.access.redhat.com/ubi8/openjdk-11:1.16 AS prod
