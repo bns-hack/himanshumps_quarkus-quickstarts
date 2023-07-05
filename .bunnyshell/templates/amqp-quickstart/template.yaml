@@ -6,7 +6,7 @@ tags:
   - Fast JAR
   - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - activemq-artemis-broker
-icons: [ 'java', 'quarkus', 'rhel', 's3', 'activemq-artemis-broker']
+icons: [ 'java', 'quarkus', 'rhel', 'activemq-artemis-broker']
 stack:
   packages:
     - name: Openjdk
