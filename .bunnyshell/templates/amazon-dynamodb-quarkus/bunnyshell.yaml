@@ -3,7 +3,7 @@ name: Quarkus amazon-dynamodb-quickstart Application (development profile)
 components:
   -
     kind: DockerImage
-    name: dynamodb-image
+    name: dynamodb_image
     gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
@@ -16,8 +16,8 @@ components:
       environment:
         SERVICES: dynamodb
         START_WEB: '0'
-        IMAGE_NAME: '{{ components.dynamodb-image.image }}'
-      image: '{{ components.dynamodb-image.image }}'
+        IMAGE_NAME: '{{ components.dynamodb_image.imageName }}:{{ components.dynamodb_image.imageTag }}'
+      image: '{{ components.dynamodb_image.imageName }}:{{ components.dynamodb_image.imageTag }}'
       ports:
         - '4566:4566'
   -
