@@ -72,7 +72,7 @@ COPY --chown=185 . .
 CMD ["./mvnw","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "quarkus:dev"]
 
 # Uncomment the next three lines if you want to use run-java.sh file with the prrovided flags
-#RUN ./mvnw clean package
+#RUN ./mvnw clean package -B -ntp -Dmaven.test.skip -DskipTests
 #ENV JAVA_APP_JAR="/home/jboss/target/quarkus-app/quarkus-run.jar"
 #CMD ["/usr/local/s2i/run"]
 
