@@ -1,6 +1,5 @@
 kind: Environment
-name: Quarkus hibernate-orm-multi-tenancy-quickstart Application (development profile)
-type: ephemeral
+name: Quarkus hibernate-orm-multi-tenancy-quickstart Application
 environmentVariables:
   POSTGRES_BASE_PASSWORD: bns_secret(qHogxn5e)
   POSTGRES_BASE_USERNAME: bns_secret(postgres)
@@ -48,7 +47,7 @@ components:
     dockerCompose:
       build:
         context: ./hibernate-orm-multi-tenancy-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         DB_HOST_TENANT_BASE: postgres-base

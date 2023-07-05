@@ -1,25 +1,45 @@
 ## Template Overview
 
-This template showcases how to use the AWS DynamoDB client with Quarkus.
+This template demonstrates how your Hibernate ORM application can support multitenancy so that you can serve multiple tenants from a single application.
 
-To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/amazon-dynamodb-quickstart/README.md).
+When serving multiple customers from a same application (e.g.: SaaS), each customer is a tenant with a separate database or a separate schema in the same database.
+
+Approach that uses a separate database (datasource 'base' and 'mycompany') for storing the tenant's data.
+
+To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-multi-tenancy-quickstart/README.md)
+
 ## Testing
 
-Go to `<protocol>://<hostname>/fruits.html` or `<protocol>://<hostname>/async-fruits.html` to traverse the application
+Navigate to:
+
+<protocol>://<hostname>/index.html
+
+You can easily select the tenant in the dropdown and in the backround the appropriate schema or database will be selected.
 
 ## Images Used
 
 - [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
 
-- [DynamoDB via Localstack](https://hub.docker.com/r/localstack/localstack)
+- [Postgres](https://hub.docker.com/_/postgres)
+
+## Container images
+
+The images have 2 possible stages(if specified): `dev` and `prod`.
+
+The `dev` stage is suitable for development, as it contains development packages and libraries and has debugging enabled.  
+The `prod` stage is meant for production/staging, as it produces an optimized image, as lightweight as possible.
+
+The stage (`dev` or `prod`) can be set from the Environment's configuration (`bunnyshell.yaml`), within each Component's `dockerCompose.build.target` property. The default is `dev`, and it can be changed to `prod` to produce production-like images.
 
 ## How to use this Template
 
 You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
 
+
 ### Staging / Testing
 
 You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
+
 
 ### Remote Development
 
@@ -1857,4 +1877,3 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
 
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).
-
