@@ -12,7 +12,7 @@ To read more about this, please refer [here](https://github.com/himanshumps/quar
 
 Navigate to:
 
-<protocol>://<hostname>/index.html
+`<protocol>://<hostname>/index.html`
 
 You can easily select the tenant in the dropdown and in the backround the appropriate schema or database will be selected.
 
