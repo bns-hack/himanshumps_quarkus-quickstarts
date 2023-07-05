@@ -12,6 +12,19 @@
 
 - [Postgres 15.3 Alpine](https://hub.docker.com/layers/library/postgres/15.3-alpine3.18/images/sha256-58a4e7ae605e8e247180ebba1cc3758ab20677e9a5221ab3150a74f47938b8a1?context=explore)
 
+# How to use this Template
+
+You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
+
+
+## Staging / Testing
+
+You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
+
+# Important Note
+
+You must change all passwords and review all parameters to ensure that your Environment is secure.
+
 ## Customization of the image using environment variable
 
 The RedHat UBI image and the quarkus application provide a ton of flags to modify the application behaviour using environment variables.
@@ -161,127 +174,3 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).
 
-## How to use this Template
-
-You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
-
-&nbsp;
-
-## Staging / Testing
-
-You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
-
-&nbsp;
-
-## Remote Development
-
-[Remote Development](https://documentation.bunnyshell.com/docs/remote-development) allows you to develop directly in a cloud environment, therefore eliminating all inconsistencies and approximations of traditional local environments.
-
-The code is executed in a container running in Kubernetes, while being synchronized real-time with your local folders.
-
-📖 For more information on how Remote Development works in Bunnyshell, please see the [dedicated documentation](https://documentation.bunnyshell.com/docs/remote-development).
-
-🧱 Remote Development can only be started from the CLI, so you will need to [install the Bunnyshell CLI](https://documentation.bunnyshell.com/docs/bunnyshell-cli-install) installed and to [authenticate in the CLI](https://documentation.bunnyshell.com/docs/bunnyshell-cli-authentication).
-
-&nbsp;
-
-You need to ensure that the `dockerCompose.build.target` is set to `dev` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
-
-&nbsp;
-
-### Start a Remote Development session
-
-In order to start a Remote Development session, you must run a command from the CLI:
-```
-bns remote-development up --component {COMPONENT_ID}
-```
-
-The exact command can be copied from the UI: go to the Environment details screen, select the desired Component, then *Remote Development*. In case you do not specify the `component` flag, the CLI will guide you through using a wizard.
-
-You need to provide 2 additional paths:
-- the *local path*, for your local code files
-- the *remote path*: the path where code files are located within the container (you can find this out from the `Dockerfile`, it's in the `WORKDIR` statement); for the `api` application, it is `/usr/src/app/backend`.
-
-💡 The wizard will require these from you, but you can also provide them as options, `-l` and `-r` respectively. You can also define [the remote development configuration](https://documentation.bunnyshell.com/docs/remote-development-sharing-configuration) in `bunnyshell.yaml`.
-
-After starting the Remote Development session, the Bunnyshell CLI opens a shell into the container. From it, you can run any application-related command you would run on local.  
-Please note that **you must start the application** manually, as you may need to start the application in a number of ways, eg. with or without debugging.
-
-```
-$ bns remote-development up --component {YOUR_COMPONENT_ID}
-? Local Path {YOUR_OWN_LOCAL_PATH}}
-? Remote Path /usr/src/app/backend
-/usr/src/app/backend # <Application start command>
-```
-
-📖 For more information on starting a remote Development session, please see:
-- [How to Start Remote Development](https://documentation.bunnyshell.com/docs/remote-development-start)
-    - [with local files](https://documentation.bunnyshell.com/docs/remote-development-local-files)
-    - [with remote files](https://documentation.bunnyshell.com/docs/remote-development-remote-files)
-
-&nbsp;
-
-### Stop a Remote Development session
-
-In order to stop a Remote Development session, you must run the complementary command for `up` from the CLI:
-```
-bns remote-development down --component {YOUR_COMPONENT_ID}
-```
-
-📖 For more information on stopping a remote Development session, please see:
-- [Stop Remote Development](https://documentation.bunnyshell.com/docs/remote-development-stop)
-
-&nbsp;
-
-### Debugging in a Remote Development session
-
-You can debug your code even if it's running in a container in Kubernetes, just like you would on your local machine: use breakpoints, control the flow of execution, see variable values and call stacks etc.
-
-The configuration differs based on the way you chose to work, and also on your IDE of choice.
-
-&nbsp;
-
-#### Debugging backend
-
-When debugging with local code, you need to:
-1. start the Remote Development session with port-forwarding on the debugger's port (`9229` for `nodemon`)
-2. start the node process (eg. run `npm run start:dev`) in the shell you're left in after the `bns remote-development up` command finishes
-3. [set up the IDE with a debugging configuration](https://documentation.bunnyshell.com/docs/remote-development-debugging-nodejs#setting-up-the-ide) on the debugger's port (`9229` for `nodemon`)
-4. define a file mapping (local to remote) for the IDE configuration (eg. `{YOUR_OWN_LOCAL_PATH}}` to `/usr/src/app/backend`)
-5. start the debug process from your IDE
-
-For the `api` service, you need to run:
-```
-$ bns remote-development up --component {YOUR_COMPONENT_ID} --port-forward "9229>9229"
-? Local Path {YOUR_OWN_LOCAL_PATH}}
-? Remote Path /usr/src/app/backend
-/usr/src/app/backend # npm run start:dev
-```
-
-You can now add breakpoints and start debugging.
-
-📖 For more information on debugging locally, please see:
-- [Debugging locally with port forwarding](https://documentation.bunnyshell.com/docs/remote-development-debugging)
-    - [Debugging node.js](https://documentation.bunnyshell.com/docs/remote-development-debugging-nodejs) for both `app` and `api`
-- [Debugging remotely with VS Code](https://documentation.bunnyshell.com/docs/remote-development-configure-vs-code)
-
-&nbsp;
-
-#### Debugging frontend
-
-Debugging frontend applications has a different approach than debugging backend applications, as it leverage the WDS (Webpack Dev Server) technique for modern javascript frameworks.
-
-You only need to configure your IDE for the Remote Environment, and this is a matter of following a few simple steps.
-
-📖 For more information on debugging frontend applications, please see:
-- [Debugging frontend apps](https://documentation.bunnyshell.com/docs/remote-development-debugging-frontend)
-
-&nbsp;
-
----
-
-&nbsp;
-
-## Important Note
-
-You must change all passwords and review all parameters to ensure that your Environment is secure.
