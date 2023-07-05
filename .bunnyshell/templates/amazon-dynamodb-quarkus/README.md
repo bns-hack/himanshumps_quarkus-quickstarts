@@ -12,19 +12,17 @@ Go to `<protocol>://<hostname>/fruits.html` or `<protocol>://<hostname>/async-fr
 
 - [DynamoDB via Localstack](https://hub.docker.com/r/localstack/localstack)
 
-# How to use this Template
+## How to use this Template
 
 You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
 
-&nbsp;
 
-## Staging / Testing
+### Staging / Testing
 
 You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
 
-&nbsp;
 
-## Remote Development
+### Remote Development
 
 [Remote Development](https://documentation.bunnyshell.com/docs/remote-development) allows you to develop directly in a cloud environment, therefore eliminating all inconsistencies and approximations of traditional local environments.
 
