@@ -9,7 +9,7 @@ components:
     gitApplicationPath: /
     dockerCompose:
       build:
-        context: /
+        context: ./
         dockerfile: Dockerfile.dynamodb
       environment:
         SERVICES: dynamodb
