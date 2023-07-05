@@ -16,7 +16,7 @@ components:
       environment:
         SERVICES: dynamodb
         START_WEB: '0'
-        IMAGE_NAME: '{{ components.dynamodbimage.imageName }}:{{ components.dynamodbimage.imageTag }}'
+        IMAGE_NAME: {{ components.dynamodbimage.imageName }}:{{ components.dynamodbimage.imageTag }}
       image: '{{ components.dynamodbimage.imageName }}:{{ components.dynamodbimage.imageTag }}'
       ports:
         - '4566:4566'
