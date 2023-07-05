@@ -20,7 +20,7 @@ components:
         - '4566:4566'
   -
     kind: Application
-    name: amazon-s3-quickstart-applicaton
+    name: amazon-s3-quickstart-application
     gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: amazon-s3-quickstart
