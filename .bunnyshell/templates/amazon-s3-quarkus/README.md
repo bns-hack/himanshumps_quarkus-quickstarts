@@ -15,6 +15,14 @@ Alternatively, go to `<protocol>://<hostname>/async-s3.html` with the simple App
 
 - [S3 via Localstack](https://hub.docker.com/r/localstack/localstack)
 
+## Container images
+
+The images have 2 possible stages(if specified): `dev` and `prod`.
+
+The `dev` stage is suitable for development, as it contains development packages and libraries and has debugging enabled.  
+The `prod` stage is meant for production/staging, as it produces an optimized image, as lightweight as possible.
+
+The stage (`dev` or `prod`) can be set from the Environment's configuration (`bunnyshell.yaml`), within each Component's `dockerCompose.build.target` property. The default is `dev`, and it can be changed to `prod` to produce production-like images.
 
 ## How to use this Template
 
@@ -36,22 +44,7 @@ The code is executed in a container running in Kubernetes, while being synchroni
 
 🧱 Remote Development can only be started from the CLI, so you will need to [install the Bunnyshell CLI](https://documentation.bunnyshell.com/docs/bunnyshell-cli-install) installed and to [authenticate in the CLI](https://documentation.bunnyshell.com/docs/bunnyshell-cli-authentication).
 
-&nbsp;
-
 You need to ensure that the `dockerCompose.build.target` is set to `dev` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
-
-## Container images
-
-The images have 2 possible stages(if specified): `dev` and `prod`.
-
-The `dev` stage is suitable for development, as it contains development packages and libraries and has debugging enabled.  
-The `prod` stage is meant for production/staging, as it produces an optimized image, as lightweight as possible.
-
-The stage (`dev` or `prod`) can be set from the Environment's configuration (`bunnyshell.yaml`), within each Component's `dockerCompose.build.target` property. The default is `dev`, and it can be changed to `prod` to produce production-like images.
-
-## Staging / Testing / Production
-
-You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
 
 ## Important Note
 
