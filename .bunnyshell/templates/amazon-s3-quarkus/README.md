@@ -1,16 +1,18 @@
 ## Template Overview
 
-This template showcases how to use the AWS DynamoDB client with Quarkus.
+This template showcases how to use the AWS S3 client with Quarkus.
 
 ## Testing
 
-Go to [`<protocol>://<hostname>/fruits.html`](<protocol>://<hostname>/fruits.html) or [`<protocol>://<hostname>/async-fruits.html`](<protocol>://<hostname>/async-fruits.html)
+Go to `<protocol>://<hostname>/s3.html`, it should show a simple App to manage files on your Bucket.
+You can upload files to the bucket via the form.
 
+Alternatively, go to `<protocol>://<hostname>/async-s3.html` with the simple App communicating with Async resources.
 ### Images Used
 
 - [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
 
-- [DynamoDB via Localstack](https://hub.docker.com/r/localstack/localstack)
+- [S3 via Localstack](https://hub.docker.com/r/localstack/localstack)
 
 ## How to use this Template
 
