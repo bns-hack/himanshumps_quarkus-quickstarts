@@ -12,7 +12,7 @@
 
 - [Postgres 15.3 Alpine](https://hub.docker.com/layers/library/postgres/15.3-alpine3.18/images/sha256-58a4e7ae605e8e247180ebba1cc3758ab20677e9a5221ab3150a74f47938b8a1?context=explore)
 
-# How to use this Template
+## How to use this Template
 
 You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
 
@@ -21,7 +21,7 @@ You can create Environments from a [Bunnyshell Template](https://documentation.b
 
 You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
 
-# Important Note
+## Important Note
 
 You must change all passwords and review all parameters to ensure that your Environment is secure.
 
