@@ -63,18 +63,17 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:1.16 as dev
 
 ENV LANGUAGE='en_US:en'
 
-COPY --chown=185 .mvn .mvn
-COPY --chown=185 pom.xml mvnw mvnw.cmd ./
-RUN ./mvnw dependency:go-offline -B -ntp -Dmaven.test.skip -DskipTests
-RUN ./mvnw clean package quarkus:go-offline -B -ntp -Dmaven.test.skip -DskipTests -Dquarkus-profiles=build,dev
+COPY --chown=185 pom.xml
+RUN mvn dependency:go-offline -B -ntp -Dmaven.test.skip -DskipTests
+RUN mvn clean package quarkus:go-offline -B -ntp -Dmaven.test.skip -DskipTests -Dquarkus-profiles=build,dev
 COPY --chown=185 . .
 # The following command enables the hot deploy of the application. Comment this if you wish to use run-java.sh to launch the application
-CMD ["./mvnw","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "quarkus:dev"]
+#CMD ["mvn","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "quarkus:dev"]
 
 # Uncomment the next three lines if you want to use run-java.sh file with the prrovided flags
-#RUN ./mvnw clean package -B -ntp -Dmaven.test.skip -DskipTests
-#ENV JAVA_APP_JAR="/home/jboss/target/quarkus-app/quarkus-run.jar"
-#CMD ["/usr/local/s2i/run"]
+RUN mvn clean package -B -ntp -Dmaven.test.skip -DskipTests
+ENV JAVA_APP_JAR="/home/jboss/target/quarkus-app/quarkus-run.jar"
+CMD ["/usr/local/s2i/run"]
 
 
 # Prod stage
