@@ -1,23 +1,23 @@
 ## Template Overview
 
+This template showcases how to use the AWS DynamoDB client with Quarkus.
 
 ## Testing
 
+Go to [`<scheme>://<hostname>/fruits.html`](<scheme>://<hostname>/fruits.html) or [`<scheme>://<hostname>/async-fruits.html`](<scheme>://<hostname>/async-fruits.html)
 
 ### Images Used
 
-- [Redhat UBI9 OpenJDK 19](https://catalog.redhat.com/software/containers/ubi9/openjdk-17/61ee7c26ed74b2ffb22b07f6)
+- [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
 
-- [Node 18 LTS Alpine](https://hub.docker.com/layers/library/node/18.12-alpine3.17/images/sha256-b375b98d1dcd56f5783efdd80a4d6ff5a0d6f3ce7921ec99c17851db6cba2a93?context=explore)
-
-- [Postgres 15.3 Alpine](https://hub.docker.com/layers/library/postgres/15.3-alpine3.18/images/sha256-58a4e7ae605e8e247180ebba1cc3758ab20677e9a5221ab3150a74f47938b8a1?context=explore)
+- [DynamoDB via Localstack](https://hub.docker.com/r/localstack/localstack)
 
 ## How to use this Template
 
 You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
 
 
-## Staging / Testing
+## Staging / Testing / Production
 
 You need to ensure that the `dockerCompose.build.target` is set to `prod` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
 

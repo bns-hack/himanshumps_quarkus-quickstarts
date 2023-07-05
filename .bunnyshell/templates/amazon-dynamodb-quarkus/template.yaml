@@ -6,7 +6,7 @@ tags:
   - Fast JAR
   - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - DynamoDB (Localstack)
-icons: [ 'java', 'quarkus', "dynamodb", ]
+icons: [ 'java', 'quarkus', "rhel", "dynamodb"]
 stack:
   packages:
     - name: Openjdk
@@ -15,4 +15,6 @@ stack:
       version: '3.1.3'
     - name: Localstack (for dynamodb)
       version: '2.1.0'
+    - name: RHEL UBI
+      version: 8
 discoverable: true
