@@ -25,7 +25,7 @@ components:
     dockerCompose:
       build:
         context: ./amazon-dynamodb-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         LOCALSTACK: 'dynamodb-database'
