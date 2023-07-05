@@ -5,7 +5,7 @@ The complete instructions for local development are available on https://quarkus
 
 ## Testing
 
-Open your browser to `<protocol>>://<hostname>/quotes.html`, and click on the "Request Quote" button.
+Open your browser to `<protocol>://<hostname>/quotes.html`, and click on the "Request Quote" button.
 
 ## Images Used
 
