@@ -6,7 +6,7 @@ tags:
   - Fast JAR
   - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - S3 (Localstack)
-icons: [ 'java', 'quarkus', "rhel", "s3"]
+icons: [ 'java', 'quarkus', 'rhel', 's3']
 stack:
   packages:
     - name: Openjdk
@@ -16,5 +16,5 @@ stack:
     - name: Localstack (for s3)
       version: '2.1.0'
     - name: RHEL UBI
-      version: 8
+      version: '8'
 discoverable: true
