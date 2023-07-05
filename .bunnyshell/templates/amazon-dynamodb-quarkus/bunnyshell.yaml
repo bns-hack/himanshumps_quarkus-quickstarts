@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus amazon-dynamodb-quickstart Application (development profile)
+name: Quarkus amazon-dynamodb-quickstart Application
 components:
   -
     kind: Database
