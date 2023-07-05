@@ -42,7 +42,7 @@ The RedHat UBI image and the quarkus application provide a ton of flags to modif
 
 The Java Runtime startup parameters that are available are as follows:
 
-<table>
+<table width="80%">
     <thead>
         <tr>
             <th>Configuration property</th>
