@@ -1,15 +1,18 @@
-name: Quarkus amazon-dynamodb-quickstart Application (development profile)
-description: Ths is the development profile for developers to spin up a new environment for running the amazon-dynamodb-quickstart application.
+name: Quarkus amazon-dynamodb-quickstart Application
+description: Ths is the profile for developers to spin up a new environment for running the amazon-dynamodb-quickstart application.
 tags:
   - Java
   - Quarkus
   - Fast JAR
-  - DynamoDB
-icons: [ 'java', 'quarkus']
+  - RHEL OpenJDK 11 (UBI and run-java.sh based)
+  - DynamoDB (Localstack)
+icons: [ 'java', 'quarkus', "dynamodb", ]
 stack:
   packages:
     - name: Openjdk
-      version: '17'
+      version: '11'
     - name: Quarkus
       version: '3.1.3'
+    - name: Localstack (for dynamodb)
+      version: latest
 discoverable: true
