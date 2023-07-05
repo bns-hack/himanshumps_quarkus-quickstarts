@@ -6,7 +6,7 @@ tags:
   - Fast JAR
   - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - S3 (Localstack)
-icons: [ 'java', 'quarkus', "rhel", "dynamodb"]
+icons: [ 'java', 'quarkus', "rhel", "s3"]
 stack:
   packages:
     - name: Openjdk
