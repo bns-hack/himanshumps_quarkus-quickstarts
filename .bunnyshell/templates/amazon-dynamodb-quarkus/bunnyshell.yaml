@@ -3,7 +3,7 @@ name: Quarkus amazon-dynamodb-quickstart Application (development profile)
 components:
   -
     kind: Database
-    name: dynamodb-localstack
+    name: dynamodb-database
     gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
@@ -28,7 +28,7 @@ components:
         dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
         target: dev
       environment:
-        LOCALSTACK: 'dynamodb-localstack'
+        LOCALSTACK: 'dynamodb-database'
       ports:
         - '8080:8080'
     hosts:
