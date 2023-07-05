@@ -2,17 +2,15 @@ kind: Environment
 name: Quarkus amazon-dynamodb-quickstart Application (development profile)
 components:
   -
-    kind: DockerImage
-    name: database
+    kind: Database
+    name: dynamodb-localstack
     gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
-    context: /
-    dockerfile: Dockerfile.dynamodb
-  -
-    kind: Database
-    name: dynamodb-localstack
     dockerCompose:
+      build:
+        context: /
+        dockerfile: Dockerfile.dynamodb
       environment:
         SERVICES: dynamodb
         START_WEB: '0'
