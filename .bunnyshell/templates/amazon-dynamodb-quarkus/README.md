@@ -161,7 +161,7 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).
 
-# How to use this Template
+## How to use this Template
 
 You can create Environments from a [Bunnyshell Template](https://documentation.bunnyshell.com/docs/templates-what-are-templates); these Environments can have multiple purposes:
 
@@ -282,6 +282,6 @@ You only need to configure your IDE for the Remote Environment, and this is a ma
 
 &nbsp;
 
-# Important Note
+## Important Note
 
 You must change all passwords and review all parameters to ensure that your Environment is secure.
