@@ -1,16 +1,21 @@
 kind: Environment
-name: Quarkus amazon-s3-quickstart Application (development profile)
+name: Quarkus amazon-s3-quickstart Application
 type: ephemeral
 components:
   -
     kind: Database
-    name: s3-localstack
+    name: s3-database
+    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitBranch: master
+    gitApplicationPath: /
     dockerCompose:
+      build:
+        context: ./
+        dockerfile: Dockerfile.s3
       environment:
         SERVICES: s3
         START_WEB: '0'
         EAGER_SERVICE_LOADING: '1'
-      image: himanshumps/s3-localstack
       ports:
         - '4566:4566'
   -
@@ -22,10 +27,10 @@ components:
     dockerCompose:
       build:
         context: ./amazon-s3-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
-        LOCALSTACK: 's3-localstack'
+        LOCALSTACK: 's3-database'
       ports:
         - '8080:8080'
     hosts:

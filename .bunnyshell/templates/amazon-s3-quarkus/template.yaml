@@ -1,15 +1,20 @@
-name: Quarkus amazon-s3-quickstart Application (development profile)
-description: Ths is the development profile for developers to spin up a new environment for running the amazon-dynamodb-quickstart application.
+name: Quarkus amazon-s3-quickstart Application
+description: Ths is the profile for developers to spin up a new environment for running the amazon-s3-quickstart application.
 tags:
   - Java
   - Quarkus
   - Fast JAR
-  - DynamoDB
-icons: [ 'java', 'quarkus']
+  - RHEL OpenJDK 11 (UBI and run-java.sh based)
+  - S3 (Localstack)
+icons: [ 'java', 'quarkus', "rhel", "dynamodb"]
 stack:
   packages:
     - name: Openjdk
-      version: '17'
+      version: '11'
     - name: Quarkus
       version: '3.1.3'
+    - name: Localstack (for s3)
+      version: '2.1.0'
+    - name: RHEL UBI
+      version: 8
 discoverable: true
