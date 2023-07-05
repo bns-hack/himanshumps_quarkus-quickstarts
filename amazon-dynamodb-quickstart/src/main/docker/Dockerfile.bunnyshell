@@ -63,7 +63,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:1.16 as dev
 
 ENV LANGUAGE='en_US:en'
 
-COPY --chown=185 pom.xml
+COPY --chown=185 pom.xml ./
 RUN mvn dependency:go-offline -B -ntp -Dmaven.test.skip -DskipTests
 RUN mvn clean package quarkus:go-offline -B -ntp -Dmaven.test.skip -DskipTests -Dquarkus-profiles=build,dev
 COPY --chown=185 . .
