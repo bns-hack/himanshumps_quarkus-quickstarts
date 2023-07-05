@@ -69,14 +69,14 @@ RUN mvn clean package quarkus:go-offline -B -ntp -Dmaven.test.skip -DskipTests -
 COPY --chown=185 . .
 EXPOSE 8080
 # The following command enables the hot deploy of the application. Comment this if you wish to use run-java.sh to launch the application
-CMD ["mvn","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "quarkus:dev"]
+#CMD ["mvn","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "quarkus:dev"]
 
 # Uncomment the next commented lines if you want to use run-java.sh file with the provided flags
-#RUN mvn clean package -B -ntp -Dmaven.test.skip -DskipTests
-#ENV AB_JOLOKIA_OFF=""
-#ENV JAVA_OPTS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
-#ENV JAVA_APP_JAR="/home/jboss/target/quarkus-app/quarkus-run.jar"
-#CMD ["/usr/local/s2i/run"]
+RUN mvn clean package -B -ntp -Dmaven.test.skip -DskipTests
+ENV AB_JOLOKIA_OFF=""
+ENV JAVA_OPTS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+ENV JAVA_APP_JAR="/home/jboss/target/quarkus-app/quarkus-run.jar"
+CMD ["/usr/local/s2i/run"]
 
 
 # Prod stage
