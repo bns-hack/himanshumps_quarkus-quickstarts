@@ -4,7 +4,7 @@ This template showcases how to use the AWS DynamoDB client with Quarkus.
 
 ## Testing
 
-Go to [`<scheme>://<hostname>/fruits.html`](<scheme>://<hostname>/fruits.html) or [`<scheme>://<hostname>/async-fruits.html`](<scheme>://<hostname>/async-fruits.html)
+Go to `<protocol>://<hostname>/fruits.html` or `<protocol>://<hostname>/async-fruits.html` to traverse the application
 
 ### Images Used
 
