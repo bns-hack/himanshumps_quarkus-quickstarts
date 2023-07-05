@@ -1,6 +1,5 @@
 kind: Environment
-name: Quarkus amqp-quickstart Application (development profile)
-type: ephemeral
+name: Quarkus amqp-quickstart Application
 components:
   -
     kind: Database
@@ -23,7 +22,7 @@ components:
     dockerCompose:
       build:
         context: ./amqp-quickstart/amqp-quickstart-processor
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         AMQP_HOST: activemq-artemis-broker
@@ -37,7 +36,7 @@ components:
     dockerCompose:
       build:
         context: ./amqp-quickstart/amqp-quickstart-producer
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         AMQP_HOST: activemq-artemis-broker

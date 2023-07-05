@@ -1,6 +1,5 @@
 kind: Environment
 name: Quarkus amazon-s3-quickstart Application
-type: ephemeral
 components:
   -
     kind: Database
