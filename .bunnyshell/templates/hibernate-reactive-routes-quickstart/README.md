@@ -1,16 +1,16 @@
 ## Template Overview
 
-Hibernate Reactive and RESTEasy Reactive
+Hibernate Reactive and Vert.x Web
 
 This is a minimal CRUD service exposing a couple of endpoints over REST, with a front-end based on Angular so you can play with it from your browser.
 
 While the code is surprisingly simple, under the hood this is using:
-- RESTEasy Reactive to expose the REST endpoints
+- Vert.x Web routes to expose the REST endpoints
 - Hibernate Reactive to perform the CRUD operations on the database
 - A PostgreSQL database
 - ArC, the CDI inspired dependency injection tool with zero overhead
 
-To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-panache-quickstart/README.md)
+To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-reactive-routes-quickstart/README.md)
 
 ## Testing
 
