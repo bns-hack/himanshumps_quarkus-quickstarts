@@ -2,7 +2,7 @@
 
 This template showcases how to use the AWS S3 client with Quarkus.
 
-To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/amazon-s3-quickstart/README.md).
+To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/amazon-s3-quickstart/README.md).
 
 ## Testing
 

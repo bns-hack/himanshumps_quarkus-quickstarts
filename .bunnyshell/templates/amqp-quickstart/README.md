@@ -2,7 +2,7 @@
 
 This template illustrates how you can interact with AMQP 1.0 (Apache Artemis in this quickstart) using MicroProfile Reactive Messaging.
 
-The complete instructions for local development are available on https://quarkus.io/guides/amqp.
+The complete instructions for local development are available on [here](https://quarkus.io/guides/amqp).
 
 ## Testing
 

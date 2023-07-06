@@ -1,20 +1,21 @@
 ## Template Overview
 
-This template demonstrates how your Hibernate ORM application can support multitenancy so that you can serve multiple tenants from a single application.
+This is a minimal CRUD service exposing a couple of endpoints over REST, with a front-end based on Angular so you can play with it from your browser.
 
-When serving multiple customers from a same application (e.g.: SaaS), each customer is a tenant with a separate database or a separate schema in the same database.
+While the code is surprisingly simple, under the hood this is using:
+- RESTEasy to expose the REST endpoints
+- Hibernate ORM with Panache and Kotlin to perform the CRUD operations on the database
+- A PostgreSQL database; see below to run one via Docker
+- ArC, the CDI inspired dependency injection tool with zero overhead
+- The high performance Agroal connection pool
+- Infinispan based caching
+- All safely coordinated by the Narayana Transaction Manager
 
-Approach that uses a separate database (datasource 'base' and 'mycompany') for storing the tenant's data.
-
-To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-multi-tenancy-quickstart/README.md)
+To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-panache-kotlin-quickstart/README.md)
 
 ## Testing
 
-Navigate to:
-
-`<protocol>://<hostname>/index.html`
-
-You can easily select the tenant in the dropdown and in the background the appropriate database will be selected.
+Navigate to: `<protocol>://<hostname>/index.html`
 
 ## Images Used
 
