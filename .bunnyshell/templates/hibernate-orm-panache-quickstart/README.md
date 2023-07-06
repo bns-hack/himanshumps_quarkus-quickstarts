@@ -1,6 +1,6 @@
 ## Template Overview
 
-This is a minimal CRUD service exposing a couple of endpoints over REST using Kotlin, with a front-end based on Angular so you can play with it from your browser.
+This is a minimal CRUD service exposing a couple of endpoints over REST, with a front-end based on Angular so you can play with it from your browser.
 
 While the code is surprisingly simple, under the hood this is using:
 - RESTEasy to expose the REST endpoints
@@ -11,7 +11,7 @@ While the code is surprisingly simple, under the hood this is using:
 - Infinispan based caching
 - All safely coordinated by the Narayana Transaction Manager
 
-To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-panache-kotlin-quickstart/README.md)
+To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-panache-quickstart/README.md)
 
 ## Testing
 

@@ -30,7 +30,7 @@ components:
     dockerCompose:
       build:
         context: ./hibernate-orm-panache-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         POSTGRES_HOST: postgres-db
@@ -41,7 +41,7 @@ components:
         - '8080:8080'
     hosts:
       -
-        hostname: 'orm-panache-qs-{{ env.base_domain }}'
+        hostname: 'orm-panache-{{ env.base_domain }}'
         path: /
         servicePort: 8080
 volumes:
