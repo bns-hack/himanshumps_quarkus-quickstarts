@@ -10,7 +10,7 @@ While the code is surprisingly simple, under the hood this is using:
 - A PostgreSQL database
 - ArC, the CDI inspired dependency injection tool with zero overhead
 
-To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-panache-quickstart/README.md)
+To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/hibernate-orm-panache-quickstart/README.md)
 
 ## Testing
 
