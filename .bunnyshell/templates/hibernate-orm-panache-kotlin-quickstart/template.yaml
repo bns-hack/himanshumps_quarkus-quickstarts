@@ -6,6 +6,7 @@ tags:
   - Fast JAR
   - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - Postgres
+  - Hibernate
 icons: [ 'java', 'quarkus', 'rhel', 'postgres', 'kotlin', 'hibernate']
 stack:
   packages:

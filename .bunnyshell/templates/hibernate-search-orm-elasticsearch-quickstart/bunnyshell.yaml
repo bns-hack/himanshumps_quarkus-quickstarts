@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus hibernate-search-orm-elasticsearch-quickstart Application (development profile)
+name: Quarkus hibernate-search-orm-elasticsearch-quickstart Application
 type: ephemeral
 environmentVariables:
   POSTGRES_PASSWORD_VAR: bns_secret(qHogxn5e)
