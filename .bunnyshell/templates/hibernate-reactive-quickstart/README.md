@@ -6,7 +6,7 @@ This is a minimal CRUD service exposing a couple of endpoints over REST, with a 
 
 While the code is surprisingly simple, under the hood this is using:
 - RESTEasy Reactive to expose the REST endpoints
-- Hibernate Reactive with Panache to perform the CRUD operations on the database
+- Hibernate Reactive to perform the CRUD operations on the database
 - A PostgreSQL database
 - ArC, the CDI inspired dependency injection tool with zero overhead
 

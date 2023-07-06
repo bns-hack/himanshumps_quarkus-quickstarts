@@ -6,8 +6,8 @@ This is a minimal CRUD service exposing a couple of endpoints over REST, with a 
 
 While the code is surprisingly simple, under the hood this is using:
 - RESTEasy to expose the REST endpoints
-- Hibernate ORM with Panache and Kotlin to perform the CRUD operations on the database
-- A PostgreSQL database; see below to run one via Docker
+- Hibernate ORM to perform the CRUD operations on the database
+- A PostgreSQL database
 - ArC, the CDI inspired dependency injection tool with zero overhead
 - The high performance Agroal connection pool
 - Infinispan based caching
