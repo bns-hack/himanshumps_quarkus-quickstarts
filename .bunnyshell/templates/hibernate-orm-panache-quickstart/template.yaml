@@ -6,7 +6,7 @@ tags:
   - Fast JAR
   - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - Postgres
-icons: [ 'java', 'quarkus', 'rhel', 'postgres']
+icons: [ 'java', 'quarkus', 'rhel', 'postgres', 'kotlin', 'hibernate']
 stack:
   packages:
     - name: Openjdk
@@ -17,4 +17,6 @@ stack:
       version: '15.3.0'
     - name: RHEL UBI
       version: '8'
+    - name: Hibernate
+      version: 6.2.5
 discoverable: true

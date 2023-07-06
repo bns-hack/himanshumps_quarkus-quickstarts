@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus hibernate-orm-quickstart Application (development profile)
+name: Quarkus hibernate-orm-quickstart Application
 type: ephemeral
 environmentVariables:
   POSTGRES_PASSWORD: bns_secret(qHogxn5e)
@@ -30,7 +30,7 @@ components:
     dockerCompose:
       build:
         context: ./hibernate-orm-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         POSTGRES_HOST: postgres-db
@@ -41,7 +41,7 @@ components:
         - '8080:8080'
     hosts:
       -
-        hostname: 'orm-qs-{{ env.base_domain }}'
+        hostname: 'orm-quickstart-{{ env.base_domain }}'
         path: /
         servicePort: 8080
 volumes:
