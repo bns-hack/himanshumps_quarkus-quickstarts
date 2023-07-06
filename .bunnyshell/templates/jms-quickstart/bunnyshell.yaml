@@ -1,6 +1,5 @@
 kind: Environment
-name: Quarkus jms-quickstart Application (development profile)
-type: ephemeral
+name: Quarkus jms-quickstart Application
 environmentVariables:
   AMQ_USER: bns_secret(amquser)
   AMQ_PASSWORD: bns_secret(qHohxn9w)
@@ -34,7 +33,7 @@ components:
     dockerCompose:
       build:
         context: ./jms-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         AMQ_USER: '{{ env.vars.AMQ_USER }}'
