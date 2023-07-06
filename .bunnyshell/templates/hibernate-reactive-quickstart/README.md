@@ -1,6 +1,6 @@
 ## Template Overview
 
-Hibernate Reactive with Panache and RESTEasy Reactive.
+Hibernate Reactive and RESTEasy Reactive
 
 This is a minimal CRUD service exposing a couple of endpoints over REST, with a front-end based on Angular so you can play with it from your browser.
 
@@ -10,7 +10,7 @@ While the code is surprisingly simple, under the hood this is using:
 - A PostgreSQL database
 - ArC, the CDI inspired dependency injection tool with zero overhead
 
-To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-reactive-panache-quickstart/README.md)
+To read more about this, please refer [here](https://github.com/himanshumps/quarkus-quickstarts/blob/3.1.3.Final/hibernate-reactive-quickstart/README.md)
 
 ## Testing
 

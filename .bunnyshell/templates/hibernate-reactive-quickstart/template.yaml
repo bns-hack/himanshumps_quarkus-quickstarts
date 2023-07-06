@@ -1,15 +1,22 @@
-name: Quarkus hibernate-reactive-quickstart Application (development profile)
-description: Ths is the development profile for developers to spin up a new environment for running the amazon-dynamodb-quickstart application.
+name: Quarkus hibernate-reactive-quickstart Application
+description: Ths is the template for developers to spin up a new environment for running the hibernate-reactive-quickstart application.
 tags:
   - Java
   - Quarkus
   - Fast JAR
+  - RHEL OpenJDK 11 (UBI and run-java.sh based)
   - Postgres
-icons: [ 'java', 'quarkus']
+icons: [ 'java', 'quarkus', 'rhel', 'postgres', 'kotlin', 'hibernate']
 stack:
   packages:
     - name: Openjdk
-      version: '17'
+      version: '11'
     - name: Quarkus
       version: '3.1.3'
+    - name: Postgres
+      version: '15.3.0'
+    - name: RHEL UBI
+      version: '8'
+    - name: Hibernate
+      version: 6.2.5
 discoverable: true
