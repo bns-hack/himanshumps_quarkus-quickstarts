@@ -49,7 +49,7 @@ components:
     dockerCompose:
       build:
         context: ./hibernate-search-orm-elasticsearch-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         POSTGRES_HOST: postgres-db
