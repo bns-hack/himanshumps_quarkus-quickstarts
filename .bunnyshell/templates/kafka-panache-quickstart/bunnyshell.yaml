@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus kafka-panache-quickstart Application (development profile)
+name: Quarkus kafka-panache-quickstart Application
 type: ephemeral
 environmentVariables:
   POSTGRES_PASSWORD: bns_secret(qHogxn5e)
@@ -8,10 +8,15 @@ components:
   -
     kind: Database
     name: zookeeper
+    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitBranch: master
+    gitApplicationPath: /
     dockerCompose:
+      build:
+        context: ./
+        dockerfile: Dockerfile.zookeeper
       environment:
         LOG_DIR: /tmp/logs
-      image: himanshumps/zookeeper
       ports:
         - '2181:2181'
       deploy:
@@ -25,15 +30,20 @@ components:
   -
     kind: Database
     name: kafka
+    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitBranch: master
+    gitApplicationPath: /
     dockerCompose:
-      image: himanshumps/kafka
-      ports:
-        - '9092:9092'
+      build:
+        context: ./
+        dockerfile: Dockerfile.kafka
       environment:
         LOG_DIR: "/tmp/logs"
         KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
         KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      ports:
+        - '9092:9092'
       deploy:
         resources:
           limits:
@@ -67,7 +77,7 @@ components:
     dockerCompose:
       build:
         context: ./kafka-panache-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         POSTGRES_HOST: postgres-db

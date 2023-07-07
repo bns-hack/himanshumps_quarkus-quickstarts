@@ -6,7 +6,7 @@ environmentVariables:
 components:
   -
     kind: Database
-    name: activemq-artemis-broker
+    name: activemq-artemis-broker-database
     dockerCompose:
       environment:
         AMQ_USER: '{{ env.vars.AMQ_USER }}'
@@ -38,7 +38,7 @@ components:
       environment:
         AMQ_USER: '{{ env.vars.AMQ_USER }}'
         AMQ_PASSWORD: '{{ env.vars.AMQ_PASSWORD }}'
-        ARTEMIS_HOST: activemq-artemis-broker
+        ARTEMIS_HOST: activemq-artemis-broker-database
       ports:
         - '8080:8080'
     hosts:
