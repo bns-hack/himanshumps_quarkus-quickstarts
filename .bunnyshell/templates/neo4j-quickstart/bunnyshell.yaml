@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus neo4j-quickstart Application (development profile)
+name: Quarkus neo4j-quickstart Application
 type: ephemeral
 environmentVariables:
   NEO4J_USERNAME: bns_secret(neo4j)
@@ -39,7 +39,7 @@ components:
     dockerCompose:
       build:
         context: ./neo4j-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         NEO4J_HOST: neo4j
