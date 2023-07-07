@@ -10,7 +10,7 @@ To read more about this, please refer [here](https://quarkus.io/guides/neo4j)
 
 ## Testing
 
-Open your browser to `<protocol>//<hostname>/fruits.html`, and traverse through the application.
+Open your browser to `<protocol>://<hostname>/fruits.html`, and traverse through the application.
 
 ## Images Used
 

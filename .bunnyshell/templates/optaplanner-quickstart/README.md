@@ -1,31 +1,29 @@
 ## Template Overview
 
-Quarkus MQTT Quickstart
+OptaPlanner AI with Hibernate ORM and RESTEasy
 
-This project illustrates how you can interact with MQTT using MicroProfile Reactive Messaging.
+This project contains a [Quarkus](https://quarkus.io/) application with [OptaPlanner](https://www.optaplanner.org/)'s constraint solving Artificial Intelligence (AI) integrated with a database and exposed through a REST API.
 
-To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/mqtt-quickstart/README.md)
+This web application optimizes a school timetable for students and teachers.
+It assigns `Lesson` instances to `Timeslot` and `Room` instances automatically
+by using AI to adhere to hard and soft scheduling constraints, such as:
 
-## Anatomy
+* *Room conflict*: A room can have at most one lesson at the same time.
+* *Teacher conflict*: A teacher can teach at most one lesson at the same time.
+* *Student group conflict*: A student can attend at most one lesson at the same time.
+* *Teacher room stability*: A teacher prefers to teach in a single room.
+* *Teacher time efficiency*: A teacher prefers to teach sequential lessons and dislikes gaps between lessons.
+* *Student group subject variety*: A student group dislikes sequential lessons on the same subject.
 
-In addition to the `prices.html` page, the application is composed by 3 components:
-
-* `PriceGenerator` - a bean generating random price. They are sent to a MQTT topic
-* `PriceConverter` - on the consuming side, the `PriceConverter` receives the MQTT message and convert the price.
-  The result is sent to an in-memory stream of data
-* `PriceResource`  - the `PriceResource` retrieves the in-memory stream of data in which the converted prices are sent and send these prices to the browser using Server-Sent Events.
-
-The interaction with MQTT is managed by MicroProfile Reactive Messaging.
-The configuration is located in the application configuration.
+To read more about this, please refer [here](https://quarkus.io/guides/neo4j)
 
 ## Testing
 
-Open your browser to `<protocol>://<hostname>/prices.html`, and you should see a fluctuating price.
+Open your browser to `<protocol>://<hostname>/`, and click on the _Solve_ button.
 
 ## Images Used
 
-- [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
-- [Eclipse Mosquitto](https://hub.docker.com/_/eclipse-mosquitto)
+- [Redhat UBI9 OpenJDK 17](https://catalog.redhat.com/software/containers/ubi9/openjdk-17/61ee7c26ed74b2ffb22b07f6)
 
 ## Container images
 
