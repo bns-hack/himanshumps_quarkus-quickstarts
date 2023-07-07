@@ -4,9 +4,9 @@ type: ephemeral
 components:
   -
     kind: Database
-    name: mongodb:6.0.7
+    name: mongodb
     dockerCompose:
-      image: mongo
+      image: mongo:6.0.7
       ports:
         - '27017:27017'
     volumes:
