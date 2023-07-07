@@ -26,7 +26,7 @@ Open your browser to `<protocol>://<hostname>/graphql/schema.graphql` to see the
 
 The GraphQL UI has been enabled for dev and prod profile and can be accessed from `<protocol>://<hostname>/q/graphql-ui`.
 
-Sample Query to try in GraphQL editor:
+Sample queries to try in GraphQL editor:
 
 ```GraphQL
 {
