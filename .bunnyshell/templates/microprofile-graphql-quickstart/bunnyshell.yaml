@@ -1,6 +1,5 @@
 kind: Environment
-name: Quarkus microprofile-graphql-quickstart Application (development profile)
-type: ephemeral
+name: Quarkus microprofile-graphql-quickstart Application
 components:
   -
     kind: Application
@@ -11,7 +10,7 @@ components:
     dockerCompose:
       build:
         context: ./microprofile-graphql-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
       ports:
         - '8080:8080'
     hosts:

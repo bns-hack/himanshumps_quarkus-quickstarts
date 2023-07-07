@@ -1,39 +1,39 @@
 ## Template Overview
 
-Quarkus Kafka Quickstart
+This application demonstrates how your Quarkus application can use SmallRye GraphQL, an implementation of the MicroProfile GraphQL specification.
 
-To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/kafka-quickstart/README.md)
+As the [GraphQL](https://www.graphql.org/) specification website states:
 
-## Anatomy
+#### *"GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools."*
 
-The application is composed of the following components:
+**GraphQL** was originally developed by **Facebook** in 2012 and has been an open standard since 2015.
 
-#### Producer
+GraphQL is not a replacement for REST API specification but merely an alternative. Unlike REST, GraphQL API’s have the ability to benefit the client by:
 
-The _producer_ application receive requests from the user (via HTTP) and sends _quote requests_ to the Kafka broker.
-Two main components compose the application:
+**Preventing Over-fetching and Under-fetching**
 
-* `QuoteProducer` generates uniquely identified quote requests and sends them to the Kafka topic `quote-requests`.
-  It also consumes the Kafka topic `quotes` and relays received messages to the browser using Server-Sent Events.
-* `quotes.html` sends quote requests to the previous endpoint and updates quotes with received prices.
+REST APIs are server-driven fixed data responses that cannot be determined by the client. Although the client does not require all the fields the client must retrieve all the data hence Over-fetching. A client may also require multiple REST API calls according to the first call (HATEOAS) to retrieve all the data that is required thereby Under-fetching.
 
-#### Processor
+**API Evolution**
 
-The _processor_ application receives quote requests from Kafka, processes them, and writes results into the `quotes` Kafka topic.
-The application has one main class:
+Since GraphQL API’s returns data that are requested by the client adding additional fields and capabilities to existing API will not create breaking changes to existing clients.
 
-* `QuoteProcessor` consumes quote request ids from the `quote-requests` Kafka topic and responds back to the `quotes` topic with a `Quote` object containing a random price.
-
-The connection to Kafka is configured in the `src/main/resources/application.properties` file.
+To read more about this, please refer [here](https://quarkus.io/guides/microprofile-graphql)
 
 ## Testing
 
-Open your browser to `<protocol>://<hostname>/quotes.html`, and you can send quote requests and observe received quotes.
+Open your browser to `<protocol>://<hostname>/graphql/schema.graphql` to see the full schema of the GraphQL API
 
+The GraphQL UI has been enabled for dev and prod profile and can be accessed from `<protocol>://<hostname>/q/graphql-ui/` (the trailing / is mandatory) .
+
+Sample Query to try in GraphQL editor:
+
+```bash
+
+```
 ## Images Used
 
 - [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
-- [Zookeeper and Kafka](https://quay.io/repository/strimzi/kafka?tab=tags&tag=0.35.1-kafka-3.3.1)
 
 ## Container images
 
