@@ -9,11 +9,14 @@ The project uses:
 * Reactive Messaging and its connector for Kafka
 * (Classic) Hibernate with Panache
 
+To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/kafka-panache-quickstart/README.md)
+
+## Anatomy 
+
 * `PriceGenerator` - a bean generating random price. They are sent to a Kafka topic.
 * `PriceStorage` - on the consuming side, the `PriceStorage` receives the Kafka message and write it into the database using Hibernate with Panache
 * `PriceResource`  - the `PriceResource` retrieves the prices from the database and send them into the HTTP response
-* 
-To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/kafka-panache-quickstart/README.md)
+
 
 ## Testing
 
