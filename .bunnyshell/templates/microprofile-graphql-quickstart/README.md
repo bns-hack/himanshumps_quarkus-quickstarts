@@ -24,13 +24,39 @@ To read more about this, please refer [here](https://quarkus.io/guides/microprof
 
 Open your browser to `<protocol>://<hostname>/graphql/schema.graphql` to see the full schema of the GraphQL API
 
-The GraphQL UI has been enabled for dev and prod profile and can be accessed from `<protocol>://<hostname>/q/graphql-ui/` (the trailing / is mandatory) .
+The GraphQL UI has been enabled for dev and prod profile and can be accessed from `<protocol>://<hostname>/q/graphql-ui`.
 
 Sample Query to try in GraphQL editor:
 
-```bash
-
+```GraphQL
+{
+  film(filmId: 1) {
+    director
+    episodeID
+  }
+}
 ```
+
+```GraphQL
+{
+  allFilms{
+    director
+    episodeID
+    title
+  }
+}
+```
+
+```GraphQL
+{
+  heroesWithSurname (surname: "Skywalker"){
+    darkSide
+    name
+    surname
+  }
+}
+```
+
 ## Images Used
 
 - [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
