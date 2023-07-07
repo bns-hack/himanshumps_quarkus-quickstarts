@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus mqtt-quickstart Application (development profile)
+name: Quarkus mqtt-quickstart Application
 type: ephemeral
 components:
   -
@@ -19,7 +19,7 @@ components:
     dockerCompose:
       build:
         context: ./mqtt-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         MQTT_HOST: mosquitto
