@@ -20,7 +20,7 @@ The configuration is located in the application configuration.
 
 ## Testing
 
-Open your browser to `<[protocol]>//<hostname>/prices.html`, and you should see a fluctuating price.
+Open your browser to `<protocol>//<hostname>/prices.html`, and you should see a fluctuating price.
 
 ## Images Used
 
