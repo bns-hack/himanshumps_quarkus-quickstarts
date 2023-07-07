@@ -25,7 +25,7 @@ Open your browser to `<protocol>//<hostname>/prices.html`, and you should see a 
 ## Images Used
 
 - [Redhat UBI8 OpenJDK 11](https://catalog.redhat.com/software/containers/ubi8/openjdk-11/5dd6a4b45a13461646f677f4)
-- [Mongodb](https://hub.docker.com/_/mongo)
+- [Eclipse Mosquitto](https://hub.docker.com/_/eclipse-mosquitto)
 
 ## Container images
 
