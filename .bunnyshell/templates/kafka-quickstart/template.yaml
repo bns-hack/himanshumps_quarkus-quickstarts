@@ -1,17 +1,20 @@
-name: Quarkus kafka-quickstart Application (development profile)
-description: Ths is the development profile for developers to spin up a new environment for running the kafka-quickstart application.
+name: Quarkus kafka-quickstart Application
+description: Ths is the template for developers to spin up a new environment for running the kafka-quickstart application.
 tags:
   - Java
   - Quarkus
   - Fast JAR
   - Kafka
   - Zookeeper
-  - Postgres
-icons: [ 'java', 'quarkus', 'kafka', 'zookeeper', 'postgres']
+icons: [ 'java', 'quarkus', 'rhel', 'kafka', 'zookeeper']
 stack:
   packages:
     - name: Openjdk
-      version: '17'
+      version: '11'
     - name: Quarkus
       version: '3.1.3'
+    - name: RHEL UBI
+      version: '8'
+    - name: Kafka and Zookeeper
+      version: '3.3.1'
 discoverable: true
