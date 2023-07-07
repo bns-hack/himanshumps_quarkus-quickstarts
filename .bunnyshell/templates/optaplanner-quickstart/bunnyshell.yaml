@@ -1,5 +1,5 @@
 kind: Environment
-name: Quarkus optaplanner-quickstart Application (development profile)
+name: Quarkus optaplanner-quickstart Application
 type: ephemeral
 components:
   -
@@ -11,7 +11,7 @@ components:
     dockerCompose:
       build:
         context: ./optaplanner-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
       environment:
         QUARKUS_PROFILE: prod
       ports:
