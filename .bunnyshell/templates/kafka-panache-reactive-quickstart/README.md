@@ -1,22 +1,20 @@
 ## Template Overview
 
-Quarkus Kafka/Panache Quickstart
+Quarkus Kafka/Panache Reactive Quickstart
 
-This project illustrates how you can interact with Apache Kafka using MicroProfile Reactive Messaging and Hibernate with Panache.
-The project uses:
+This project illustrates how you can interact with Apache Kafka using MicroProfile Reactive Messaging and Hibernate with Panache. The project uses:
 
 * RESTEasy Reactive
 * Reactive Messaging and its connector for Kafka
-* (Classic) Hibernate with Panache
+* Hibernate Reactive with Panache
 
-To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/kafka-panache-quickstart/README.md)
+To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/kafka-panache-reactive-quickstart/README.md)
 
-## Anatomy 
+## Anatomy
 
 * `PriceGenerator` - a bean generating random price. They are sent to a Kafka topic.
 * `PriceStorage` - on the consuming side, the `PriceStorage` receives the Kafka message and write it into the database using Hibernate with Panache
 * `PriceResource`  - the `PriceResource` retrieves the prices from the database and send them into the HTTP response
-
 
 ## Testing
 
