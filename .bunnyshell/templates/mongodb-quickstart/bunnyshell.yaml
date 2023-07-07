@@ -1,10 +1,10 @@
 kind: Environment
-name: Quarkus mongodb-quickstart Application (development profile)
+name: Quarkus mongodb-quickstart Application
 type: ephemeral
 components:
   -
     kind: Database
-    name: mongodb
+    name: mongodb:6.0.7
     dockerCompose:
       image: mongo
       ports:
@@ -23,7 +23,7 @@ components:
     dockerCompose:
       build:
         context: ./mongodb-quickstart
-        dockerfile: src/main/docker/Dockerfile.bunnyshell.dev
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
         target: dev
       environment:
         MONGODB_HOST: mongodb
