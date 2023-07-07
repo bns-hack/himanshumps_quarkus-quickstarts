@@ -1,6 +1,5 @@
 kind: Environment
 name: Quarkus optaplanner-quickstart Application
-type: ephemeral
 components:
   -
     kind: Application
