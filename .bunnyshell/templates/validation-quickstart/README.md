@@ -7,7 +7,10 @@ To read more about this, please refer [here](https://quarkus.io/guides/validatio
 
 ## Testing
 
-Open your browser to `<protocol>://<hostname>/`, and click on the _Solve_ button.
+open your browser to `<protocol>://<hostname>/`:
+
+1. Enter the book details (valid or invalid)
+2. Click on the Try me… buttons to check if your data is valid using one of the methods we presented above.
 
 ## Images Used
 
