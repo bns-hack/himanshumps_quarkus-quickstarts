@@ -1,0 +1,16 @@
+name: Quarkus validation-quickstart Application
+description: Ths is the template for developers to spin up a new environment for running the validation-quickstart application.
+tags:
+  - Java
+  - Quarkus
+  - Fast JAR
+icons: [ 'java', 'quarkus']
+stack:
+  packages:
+    - name: Openjdk
+      version: '11'
+    - name: Quarkus
+      version: '3.1.3'
+    - name: RHEL UBI
+      version: '8'
+discoverable: true

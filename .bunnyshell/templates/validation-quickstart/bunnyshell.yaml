@@ -1,0 +1,22 @@
+kind: Environment
+name: Quarkus validation-quickstart Application
+components:
+  -
+    kind: Application
+    name: validation-quickstart
+    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitBranch: bunnyshell
+    gitApplicationPath: validation-quickstart
+    dockerCompose:
+      build:
+        context: ./validation-quickstart
+        dockerfile: src/main/docker/Dockerfile.bunnyshell
+      environment:
+        QUARKUS_PROFILE: prod
+      ports:
+        - '8080:8080'
+    hosts:
+      -
+        hostname: 'validation-quickstart-{{ env.base_domain }}'
+        path: /
+        servicePort: 8080
