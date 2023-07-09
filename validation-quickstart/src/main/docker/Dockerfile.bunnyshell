@@ -63,8 +63,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:1.16 as dev
 
 ENV LANGUAGE='en_US:en'
 USER root
-RUN microdnf install vi  \
-    && microdnf update \
+RUN microdnf install vi wget curl glibc-devel zlib-devel gcc libffi-devel libstdc++-devel gcc-c++ glibc-langpack-en openssl curl ca-certificates git tar which shadow-utils \
     && microdnf clean all
 USER 185
 COPY --chown=185 pom.xml ./
