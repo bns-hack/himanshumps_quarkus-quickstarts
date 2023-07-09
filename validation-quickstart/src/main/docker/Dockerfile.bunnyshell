@@ -72,7 +72,7 @@ RUN mvn dependency:go-offline -B -ntp -Dmaven.test.skip -DskipTests
 RUN mvn clean package quarkus:go-offline -B -ntp -Dmaven.test.skip -DskipTests -Dquarkus-profiles=build,dev
 COPY --chown=185 . .
 EXPOSE 8080
-
+RUN pwd && ls
 # The following command enables the hot deploy of the application. Comment this if you wish to use run-java.sh to launch the application
 CMD ["mvn","-Dquarkus.http.host=0.0.0.0", "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", "-Dmaven.test.skip", "quarkus:dev"]
 
