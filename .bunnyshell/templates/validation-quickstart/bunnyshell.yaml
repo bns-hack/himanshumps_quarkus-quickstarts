@@ -11,6 +11,7 @@ components:
       build:
         context: ./validation-quickstart
         dockerfile: src/main/docker/Dockerfile.bunnyshell
+        target: dev
       environment:
         QUARKUS_PROFILE: prod
       ports:
