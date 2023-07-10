@@ -15,7 +15,7 @@ by using AI to adhere to hard and soft scheduling constraints, such as:
 * *Teacher time efficiency*: A teacher prefers to teach sequential lessons and dislikes gaps between lessons.
 * *Student group subject variety*: A student group dislikes sequential lessons on the same subject.
 
-To read more about this, please refer [here](https://quarkus.io/guides/neo4j)
+To read more about this, please refer [here](https://github.com/quarkusio/quarkus-quickstarts/blob/3.1.3.Final/optaplanner-quickstart/README.md)
 
 ## Testing
 
