@@ -1919,5 +1919,6 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
     </tbody>
 </table>
 
+The AMQP flags list is available [here](https://quarkus.io/guides/amqp-reference#configuration-reference)
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).
