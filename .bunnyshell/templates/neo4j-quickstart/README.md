@@ -48,7 +48,7 @@ The code is executed in a container running in Kubernetes, while being synchroni
 
 You need to ensure that the `dockerCompose.build.target` is set to `dev` for all the Components, and then [deploy the Environment](https://documentation.bunnyshell.com/docs/environment-workflows-deploy).
 
-Work Directory: `/home/jboss`
+Work Directory: `/home/default`
 
 Command to start the quarkus application: `mvn -Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dmaven.test.skip quarkus:dev`
 
