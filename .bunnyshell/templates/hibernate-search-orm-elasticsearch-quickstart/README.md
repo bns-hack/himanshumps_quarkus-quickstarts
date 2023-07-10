@@ -1931,5 +1931,8 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
     </tbody>
 </table>
 
+The complete list for database configuration is available [here](https://quarkus.io/guides/datasource#datasource-reference)
+
+The complete list of elastisearch configuration is available [here](https://quarkus.io/guides/elasticsearch#configuration-reference)
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).

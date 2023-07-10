@@ -1922,5 +1922,7 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
     </tbody>
 </table>
 
+The complete list of configurations to manage neo4J is available [here](https://docs.quarkiverse.io/quarkus-neo4j/dev/index.html#_configuration_reference)
+
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).
