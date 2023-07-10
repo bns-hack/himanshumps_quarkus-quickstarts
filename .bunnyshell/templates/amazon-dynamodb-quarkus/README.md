@@ -1913,5 +1913,6 @@ Quarkus also provides a ton of flags to customize the application behaviour. The
     </tbody>
 </table>
 
+The complete list of Amazon DynamoDB flags is available [here](https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-dynamodb.html#_configuration_reference)
 
 The complete list of quarkus flag is available [here](https://quarkus.io/guides/all-config).
