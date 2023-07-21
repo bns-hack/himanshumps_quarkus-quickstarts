@@ -13,7 +13,7 @@ components:
   -
     kind: Application
     name: mqtt-quickstart-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: mqtt-quickstart
     dockerCompose:

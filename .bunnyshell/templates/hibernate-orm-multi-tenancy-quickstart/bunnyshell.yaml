@@ -41,7 +41,7 @@ components:
   -
     kind: Application
     name: hibernate-orm-multi-tenancy-quickstart-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: hibernate-orm-multi-tenancy-quickstart
     dockerCompose:

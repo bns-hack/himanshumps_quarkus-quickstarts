@@ -16,7 +16,7 @@ components:
   -
     kind: Service
     name: amqp-quickstart-processor-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: amqp-quickstart/amqp-quickstart-processor
     dockerCompose:
@@ -30,7 +30,7 @@ components:
   -
     kind: Application
     name: amqp-quickstart-producer-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: amqp-quickstart/amqp-quickstart-producer
     dockerCompose:

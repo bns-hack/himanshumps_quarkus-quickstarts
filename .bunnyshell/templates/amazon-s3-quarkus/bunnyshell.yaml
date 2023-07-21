@@ -4,7 +4,7 @@ components:
   -
     kind: Database
     name: s3-database
-    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
     dockerCompose:
@@ -20,7 +20,7 @@ components:
   -
     kind: Application
     name: amazon-s3-quickstart-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: amazon-s3-quickstart
     dockerCompose:

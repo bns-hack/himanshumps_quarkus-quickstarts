@@ -4,7 +4,7 @@ components:
   -
     kind: Database
     name: dynamodb-database
-    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
     dockerCompose:
@@ -19,7 +19,7 @@ components:
   -
     kind: Application
     name: amazon-dynamodb-quickstart-applicaton
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: amazon-dynamodb-quickstart
     dockerCompose:

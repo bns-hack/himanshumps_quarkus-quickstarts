@@ -43,7 +43,7 @@ components:
   -
     kind: Application
     name: hibernate-orm-elasticsearch-qs-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: hibernate-search-orm-elasticsearch-quickstart
     dockerCompose:

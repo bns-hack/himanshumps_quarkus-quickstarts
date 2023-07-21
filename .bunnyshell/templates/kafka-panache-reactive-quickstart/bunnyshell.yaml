@@ -8,7 +8,7 @@ components:
   -
     kind: Database
     name: zookeeper
-    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
     dockerCompose:
@@ -30,7 +30,7 @@ components:
   -
     kind: Database
     name: kafka
-    gitRepo: 'https://github.com/himanshumps/bunnyshell_dockerfiles.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_bunnyshell_dockerfiles.git'
     gitBranch: master
     gitApplicationPath: /
     dockerCompose:
@@ -71,7 +71,7 @@ components:
   -
     kind: Application
     name: kafka-panache-quickstart-application
-    gitRepo: 'https://github.com/himanshumps/quarkus-quickstarts.git'
+    gitRepo: 'https://github.com/bns-hack/himanshumps_quarkus-quickstarts.git'
     gitBranch: bunnyshell
     gitApplicationPath: kafka-panache-reactive-quickstart
     dockerCompose:
